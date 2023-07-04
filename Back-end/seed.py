@@ -1,13 +1,12 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from faker import Faker
-from models import Employer, Employee, Job,employee_job_association, db
+from models import db, Employer, Employee, Job, employee_job_association
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///jobs.db' 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///jobs.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
-
 fake = Faker()
 
 
@@ -22,12 +21,13 @@ def create_employers(num_employers):
 
 
 def create_employees(num_employees, num_employers):
+    employer_ids = [employer.id for employer in Employer.query.all()]
     for _ in range(num_employees):
         name = fake.name()
         email = fake.email()
         job_title = fake.job()
         phone_number = fake.phone_number()
-        employer_id = fake.random_int(min=1, max=num_employers)
+        employer_id = fake.random_element(employer_ids)
         employee = Employee(name=name, email=email, job_title=job_title, phone_number=phone_number,
                             employer_id=employer_id)
         db.session.add(employee)
@@ -35,6 +35,7 @@ def create_employees(num_employees, num_employers):
 
 
 def create_jobs(num_jobs, num_employers):
+    employer_ids = [employer.id for employer in Employer.query.all()]
     for _ in range(num_jobs):
         company_name = fake.company()
         job_title = fake.job()
@@ -43,7 +44,7 @@ def create_jobs(num_jobs, num_employers):
         description = fake.paragraph()
         responsibility = fake.text()
         qualification = fake.text()
-        employer_id = fake.random_int(min=1, max=num_employers)
+        employer_id = fake.random_element(employer_ids)
         job = Job(company_name=company_name, job_title=job_title, location=location, paye=paye,
                   description=description, responsibility=responsibility, qualification=qualification,
                   employer_id=employer_id)
@@ -52,9 +53,11 @@ def create_jobs(num_jobs, num_employers):
 
 
 def create_associations(num_associations, num_employees, num_jobs):
+    employee_ids = [employee.id for employee in Employee.query.all()]
+    job_ids = [job.id for job in Job.query.all()]
     for _ in range(num_associations):
-        employee_id = fake.random_int(min=1, max=num_employees)
-        job_id = fake.random_int(min=1, max=num_jobs)
+        employee_id = fake.random_element(employee_ids)
+        job_id = fake.random_element(job_ids)
         db.session.execute(
             employee_job_association.insert().values(employee_id=employee_id, job_id=job_id)
         )
@@ -68,7 +71,6 @@ if __name__ == '__main__':
         num_employees = 10
         num_jobs = 20
         num_associations = 15
-
         create_employers(num_employers)
         create_employees(num_employees, num_employers)
         create_jobs(num_jobs, num_employers)
