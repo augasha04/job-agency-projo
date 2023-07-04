@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 from models import db
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///jobs.db'   #changed from test.db to jobs.db
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 migrate = Migrate(app, db)
