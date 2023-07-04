@@ -1,12 +1,26 @@
-import React from 'react'
-import NavBar from './jobseekercomponents/NavBar'
+import React from "react";
+// import { BrowserRouter, Routes, Route } from 'react-router-dom'
+//import LogIn from './jobseekercomponents/LogIn'
+import NavBar from "./jobseekercomponents/NavBar";
+// import ViewJobs from './jobseekercomponents/ViewJobs'
+// import ApplyJobs from './jobseekercomponents/ApplyJobs'
+import LoginForm from "./jobseekercomponents/LogIn"
+import ApplyJobs from "./jobseekercomponents/ApplyJobs";
+import ViewJobs from "./jobseekercomponents/ViewJobs";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <NavBar/>
-    </div>
-  )
+    <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Navigate to="/Login" />} />
+        <Route path="/Login" element={<LoginForm />} />
+        <Route path="/ApplyJobs" element={<ApplyJobs />} />
+        <Route path="/ViewJobs" element={<ViewJobs />} />
+      </Routes>
+    </>
+  );
 }
 
-export default App
+export default App;
