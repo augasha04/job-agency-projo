@@ -6,9 +6,10 @@ import "./NavBar.css";
 function NavBar() {
   return (
     <div className="seeker-navbar">
+      
       <ul>
         <li>
-          <NavLink to="/">Ho me</NavLink>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
           <NavLink to="/ViewJobs">View Jobs</NavLink>
@@ -17,10 +18,7 @@ function NavBar() {
           <NavLink to="/ApplyJobs">Apply Jobs</NavLink>
         </li>
       </ul>
-    
      
-
-      
     </div>
   );
 }

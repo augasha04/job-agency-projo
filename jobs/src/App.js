@@ -1,9 +1,6 @@
 import React from "react";
 // import { BrowserRouter, Routes, Route } from 'react-router-dom'
-//import LogIn from './jobseekercomponents/LogIn'
 import NavBar from "./jobseekercomponents/NavBar";
-// import ViewJobs from './jobseekercomponents/ViewJobs'
-// import ApplyJobs from './jobseekercomponents/ApplyJobs'
 import LoginForm from "./jobseekercomponents/LogIn"
 import ApplyJobs from "./jobseekercomponents/ApplyJobs";
 import ViewJobs from "./jobseekercomponents/ViewJobs";
