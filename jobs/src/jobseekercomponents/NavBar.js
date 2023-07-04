@@ -8,7 +8,7 @@ function NavBar() {
     <div className="seeker-navbar">
       <ul>
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/">Ho me</NavLink>
         </li>
         <li>
           <NavLink to="/ViewJobs">View Jobs</NavLink>
