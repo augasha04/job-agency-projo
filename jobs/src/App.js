@@ -1,12 +1,12 @@
-
-import './App.css';
+import React from 'react'
+import NavBar from './jobseekercomponents/NavBar'
 
 function App() {
   return (
-    <div className="App">
-      
+    <div>
+      <NavBar/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
