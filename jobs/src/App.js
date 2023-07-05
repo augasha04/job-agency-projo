@@ -5,6 +5,7 @@ import LoginForm from "./jobseekercomponents/LogIn"
 import ApplyJobs from "./jobseekercomponents/ApplyJobs";
 import ViewJobs from "./jobseekercomponents/ViewJobs";
 import { Route, Routes, Navigate } from "react-router-dom";
+import Footer from "./jobseekercomponents/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/ApplyJobs" element={<ApplyJobs />} />
         <Route path="/ViewJobs" element={<ViewJobs />} />
       </Routes>
+      <Footer />
     </>
   );
 }
