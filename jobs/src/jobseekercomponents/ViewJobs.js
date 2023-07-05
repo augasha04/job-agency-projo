@@ -6,7 +6,7 @@ function ViewJobs() {
     <div className='container'>
         <h1>WELCOME TO JOB SEEKERS VIEW PAGE</h1>
 
-        {/* <div className='cards-images'>
+        <div className='cards-images'>
         <img src=""alt=""/>
         <img src=""alt=""/>
         <img src=""alt=""/>
@@ -17,7 +17,7 @@ function ViewJobs() {
         <img src=""alt=""/>
         <img src=""alt=""/>
         <img src=""alt=""/>
-        </div> */}
+        </div>
 
     </div>
   )
