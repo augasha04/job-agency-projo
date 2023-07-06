@@ -118,8 +118,6 @@ def delete_employee(employee_id):
 
 
 #Post methods for jobs and employees
-from flask import request, jsonify
-
 @app.route('/jobs', methods=['POST'])
 def create_job():
     if request.method == 'POST':
@@ -148,31 +146,7 @@ def create_job():
         return jsonify({'message': 'Job created successfully'}), 201
 
 #Post method for employees
-@app.route('/employees', methods=['POST'])
-def create_employee():
-    data = request.json  # Assuming the request body contains JSON data
 
-    # Extract the employee data from the request JSON
-    name = data.get('name')
-    email = data.get('email')
-    job_title = data.get('job_title')
-    phone_number = data.get('phone_number')
-    employer_id = data.get('employer_id')
-
-    # Create a new Employee object
-    employee = Employee(
-        name=name,
-        email=email,
-        job_title=job_title,
-        phone_number=phone_number,
-        employer_id=employer_id
-    )
-
-    # Add the employee to the database
-    db.session.add(employee)
-    db.session.commit()
-
-    return jsonify({'message': 'Employee created successfully'})
 
 
 
