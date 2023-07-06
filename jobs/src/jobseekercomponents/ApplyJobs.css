@@ -1,0 +1,47 @@
+
+.cover-image{
+    background-image: url("https://t4.ftcdn.net/jpg/03/50/86/13/360_F_350861381_hBQdgkUCNKVwCk8dviOQnlTlKt9OfAwC.jpg");
+}
+
+.form-table{
+    width: 360px;
+    height: 400px;
+    margin: 8% auto;
+    background: wheat;
+    border-radius: 5px;
+    position: relative;
+}
+
+h3{
+    margin-bottom: 40px;
+    color: brown;
+}
+
+.form-table form{
+    width: 280px;
+    position: absolute;
+    top: 100px;
+    left: 90px;
+}
+
+form input{
+    
+    padding: 3px 5px;
+    margin: 5px 0;
+    border: 0;
+    border-bottom: 1px solid black;
+    outline: none;
+    background: transparent;
+}
+
+::placeholder{
+    color: black;
+}
+
+.btn-box{
+    width: 100%;
+    margin: 30px auto;
+}
+
+
+
